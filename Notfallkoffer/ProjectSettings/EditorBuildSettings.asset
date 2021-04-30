@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Notfallkoffer/Scenes/MainMenu.unity
+    guid: 3bb6a6428d144fa41855947969ea3a7a
+  - enabled: 1
+    path: Assets/Notfallkoffer/Scenes/Module/Angst.unity
+    guid: 81cfdf8bf4890b5438c1517cd3df68ad
+  - enabled: 1
+    path: Assets/Notfallkoffer/Scenes/Module/Panik.unity
+    guid: 36545061f7b392b4f9c0ee06a6d3c526
+  - enabled: 1
+    path: Assets/Notfallkoffer/Scenes/Module/Sorge.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

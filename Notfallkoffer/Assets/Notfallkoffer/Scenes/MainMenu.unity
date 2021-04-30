@@ -578,6 +578,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1262658702}
     m_Modifications:
+    - target: {fileID: 1880726060, guid: d88e73b12fdbf1841b125d2e0de3a31b, type: 3}
+      propertyPath: sceneName
+      value: Angst
+      objectReference: {fileID: 0}
     - target: {fileID: 4333047498620444328, guid: d88e73b12fdbf1841b125d2e0de3a31b,
         type: 3}
       propertyPath: m_Name
@@ -818,11 +822,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4333047499421112965, guid: d88e73b12fdbf1841b125d2e0de3a31b,
-        type: 3}
-      propertyPath: m_Text
-      value: SORGE
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88e73b12fdbf1841b125d2e0de3a31b, type: 3}
 --- !u!224 &1880726057 stripped
@@ -838,6 +837,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1262658702}
     m_Modifications:
+    - target: {fileID: 1880726060, guid: d88e73b12fdbf1841b125d2e0de3a31b, type: 3}
+      propertyPath: sceneName
+      value: Panik
+      objectReference: {fileID: 0}
     - target: {fileID: 4333047498620444328, guid: d88e73b12fdbf1841b125d2e0de3a31b,
         type: 3}
       propertyPath: m_Name
