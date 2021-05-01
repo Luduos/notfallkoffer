@@ -2,15 +2,18 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+using UnityEngine.Events;
 
-namespace Notfallkoffer._Scripts.Core
+namespace Notfallkoffer._Scripts
 {
     public class IntroState : State
     {
         [SerializeField] private TMP_Text countDownText;
         [SerializeField] private State nextState;
 
-
+        [SerializeField] private UnityEvent OnIntroDone;
+        
+        
         private int currentSecondCounter = 3;
         private bool bShouldExit = false;
 
@@ -69,6 +72,7 @@ namespace Notfallkoffer._Scripts.Core
         public override void Exit()
         {
             enabled = false;
+            OnIntroDone.Invoke();
         }
     }
 }

@@ -1,18 +1,32 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Notfallkoffer._Scripts.Core
+namespace Notfallkoffer._Scripts
 {
     public abstract class State : MonoBehaviour
     {
+        protected float TimeInState = 0.0f;
+
         protected virtual void Awake()
         {
             enabled = false;
         }
 
-        public abstract void Enter();
+        public virtual void Enter()
+        {
+            enabled = true;
+            TimeInState = 0.0f;
+        }
 
-        public abstract State OnStateUpdate(float deltaTime);
-        public abstract void Exit();
+        public virtual State OnStateUpdate(float deltaTime)
+        {
+            TimeInState += deltaTime;
+            return null;
+        }
+
+        public virtual void Exit()
+        {
+            enabled = false;
+        }
     }
 }

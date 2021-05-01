@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Notfallkoffer._Scripts.Core
+namespace Notfallkoffer._Scripts
 {
     public class StateManager : MonoBehaviour
     {
@@ -12,25 +12,29 @@ namespace Notfallkoffer._Scripts.Core
 
         private void Awake()
         {
-            Assert.IsNotNull(firstState);
+            // Assert.IsNotNull(firstState);
             currentState = firstState;
         }
 
         // Start is called before the first frame update
         void Start()
         {
-            currentState.Enter();
+            if (currentState)
+                currentState.Enter();
         }
 
         // Update is called once per frame
         void Update()
         {
-            State nextState = currentState.OnStateUpdate(Time.deltaTime);
-            if (nextState)
+            if (currentState)
             {
-                currentState.Exit();
-                currentState = nextState;
-                currentState.Enter();
+                State nextState = currentState.OnStateUpdate(Time.deltaTime);
+                if (nextState)
+                {
+                    currentState.Exit();
+                    currentState = nextState;
+                    currentState.Enter();
+                }
             }
         }
     }
