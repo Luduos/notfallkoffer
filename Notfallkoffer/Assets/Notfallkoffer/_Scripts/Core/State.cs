@@ -16,6 +16,7 @@ namespace Notfallkoffer._Scripts
         {
             enabled = true;
             TimeInState = 0.0f;
+            
         }
 
         public virtual State OnStateUpdate(float deltaTime)
