@@ -43,7 +43,7 @@ public class WimmelLevelManager : MonoBehaviour
                 //Hier kommt alles rein was passiert wenn der User die richtige Katze klickt (Animationen etc)
                 WimmelSoundManager.instance.PlaySource("meow");
                 GameObject cat = hit.collider.gameObject;
-                LeanTween.scale(cat, new Vector3(1.25f, 1.25f, 1.25f), 0.1f).setOnComplete(() => LeanTween.scale(cat, Vector3.zero, .3f));
+                LeanTween.scale(cat, new Vector3(1f, 1f, 1f), 0.1f).setOnComplete(() => LeanTween.scale(cat, Vector3.zero, .3f));
 
                 WimmelUIManager.instance.CheckSelectedHiddenCat(cat.name);
 
