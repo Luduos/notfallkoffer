@@ -18,7 +18,9 @@ public class WimmelSoundManager : MonoBehaviour
 
     public void PlaySource(string audioName)
     {
-        //first check if audio is on in settings, else break;
+        //first check if audio is on in settings, else return;
+        if (GameManager.instance.musicOff)
+            return;
 
         for (int i = 0; i < audioList.Count; i++)
         {
