@@ -6,6 +6,7 @@ public class WimmelLevelManager : MonoBehaviour
 {
     public static WimmelLevelManager instance;
     public int maxActiveCats;
+    public GameObject winScreen;
 
     private int totalCatsFound = 0;
 
@@ -24,6 +25,8 @@ public class WimmelLevelManager : MonoBehaviour
 
     private void Start()
     {
+        winScreen.SetActive(false);
+        WimmelSoundManager.instance.PlaySource("bgmusic");
         activeHiddenCatsList = new List<HiddenCatsData>();
         AssignHiddenObjects();
     }
@@ -37,16 +40,16 @@ public class WimmelLevelManager : MonoBehaviour
 
             if(hit && hit.collider != null)
             {
-                Debug.Log("Object Name: " + hit.collider.gameObject.name);
-
                 //Hier kommt alles rein was passiert wenn der User die richtige Katze klickt (Animationen etc)
+                WimmelSoundManager.instance.PlaySource("meow");
                 GameObject cat = hit.collider.gameObject;
                 LeanTween.scale(cat, new Vector3(1.25f, 1.25f, 1.25f), 0.1f).setOnComplete(() => LeanTween.scale(cat, Vector3.zero, .3f));
 
+                WimmelUIManager.instance.CheckSelectedHiddenCat(cat.name);
 
                 //cat.SetActive(false);
 
-                for(int i = 0; i < activeHiddenCatsList.Count; i++)
+                for (int i = 0; i < activeHiddenCatsList.Count; i++)
                 {
                     if(activeHiddenCatsList[i].catObject.name == cat.name)
                     {
@@ -59,7 +62,7 @@ public class WimmelLevelManager : MonoBehaviour
 
                 if(totalCatsFound >= maxActiveCats)
                 {
-                    Debug.Log("Übung abgeschlossen");
+                    StartCoroutine(Win());
                 }
             }
         }
@@ -91,7 +94,18 @@ public class WimmelLevelManager : MonoBehaviour
             }
 
         }
+
+        WimmelUIManager.instance.PopulateHiddenCatIcon(activeHiddenCatsList);
     }
+
+    IEnumerator Win()
+    {
+        yield return new WaitForSeconds(0.5f);
+        WimmelSoundManager.instance.EndPlaySource("bgmusic");
+        WimmelSoundManager.instance.PlaySource("win");
+        winScreen.SetActive(true);
+    }
+
 }
 
 
