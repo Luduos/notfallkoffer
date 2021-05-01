@@ -52,8 +52,8 @@ namespace Notfallkoffer._Scripts
             else
             {
                 countDownText.text = "Go";
-                countDownText.LeanAlphaText(0.0f, 0.75f).setDelay(0.25f).setEase(LeanTweenType.easeOutQuad);
-                OnFinishedState();
+                countDownText.LeanAlphaText(0.0f, 1.0f).setEase(LeanTweenType.easeOutQuad).setOnComplete(OnFinishedState);
+                // OnFinishedState();
             }
         }
 

@@ -30,7 +30,7 @@ namespace Notfallkoffer._Scripts.Sorge
             if (bFirstEntry)
             {
                 cat.LeanAlpha(0.0f, 0.0f);
-                cat.LeanAlpha(1.0f, 0.5f).setDelay(0.25f).setEase(easeType);
+                cat.LeanAlpha(1.0f, 0.5f).setEase(easeType);
             }
             animator.speed = 1.0f / breatheInTime;
 
