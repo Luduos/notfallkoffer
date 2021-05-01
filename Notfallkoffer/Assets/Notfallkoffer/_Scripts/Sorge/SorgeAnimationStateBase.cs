@@ -51,7 +51,7 @@ namespace Notfallkoffer._Scripts.Sorge
 
         public override State OnStateUpdate(float deltaTime)
         {
-            if (TimeInState > stateData.timeInState)
+            if (CurrentTimeInState > stateData.timeInState)
             {
                 return stateData.nextState;
             }

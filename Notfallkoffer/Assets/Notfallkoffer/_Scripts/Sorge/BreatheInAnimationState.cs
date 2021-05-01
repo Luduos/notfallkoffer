@@ -5,7 +5,7 @@ namespace Notfallkoffer._Scripts.Sorge
 {
     public class BreatheInAnimationState : SorgeAnimationStateBase
     {
-        private bool bFirstEntry = true;
+        [SerializeField] private AudioSource audioSource;
 
         protected override void Awake()
         {
@@ -22,6 +22,14 @@ namespace Notfallkoffer._Scripts.Sorge
                 stateData.catObject.LeanAlpha(1.0f, 0.5f).setEase(stateData.easeType);
                 stateData.animator.SetTrigger("In");
             }
+            
+            audioSource.Play();
+            LeanTween.value(0.0f, 1.0f, stateData.timeInState).setOnUpdate(OnUpdateVolume);
+        }
+
+        private void OnUpdateVolume(float alpha)
+        {
+            audioSource.volume = alpha;
         }
 
         public override void Exit()
