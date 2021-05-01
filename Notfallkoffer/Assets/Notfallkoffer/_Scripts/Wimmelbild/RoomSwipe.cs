@@ -6,6 +6,7 @@ public class RoomSwipe : MonoBehaviour
 {
     private Vector2 startTouchPosition, endTouchPosition;
     public Camera mainCamera;
+    public GameObject buttonleft, buttonright;
     public enum SwipeState
     {
         left,
@@ -43,6 +44,7 @@ public class RoomSwipe : MonoBehaviour
         {
             LeanTween.moveLocalX(mainCamera.gameObject, 3f, .5f);
             swipeState = SwipeState.right;
+            buttonright.SetActive(false);
         }
         if (swipeState == SwipeState.right)
         {
@@ -50,6 +52,8 @@ public class RoomSwipe : MonoBehaviour
         }
         if (swipeState == SwipeState.left)
         {
+            buttonright.SetActive(true);
+            buttonleft.SetActive(true);
             LeanTween.moveLocalX(mainCamera.gameObject, 0f, .5f);
             swipeState = SwipeState.middle;
         }
@@ -61,6 +65,7 @@ public class RoomSwipe : MonoBehaviour
         {
             LeanTween.moveLocalX(mainCamera.gameObject, -3f, .5f);
             swipeState = SwipeState.left;
+            buttonleft.SetActive(false);
         }
         if (swipeState == SwipeState.left)
         {
@@ -68,6 +73,8 @@ public class RoomSwipe : MonoBehaviour
         }
         if (swipeState == SwipeState.right)
         {
+            buttonright.SetActive(true);
+            buttonleft.SetActive(true);
             LeanTween.moveLocalX(mainCamera.gameObject, 0f, .5f);
             swipeState = SwipeState.middle;
         }
