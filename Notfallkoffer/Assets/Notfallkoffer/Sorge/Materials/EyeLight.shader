@@ -3,6 +3,7 @@ Shader "Unlit/EyeLight"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        
     }
     SubShader
     {
@@ -51,10 +52,10 @@ Shader "Unlit/EyeLight"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
-                float speed = 0.1f;
-                float cutoff = 0.8f;
-                float length = 4.0f;
-                float sinTime = sin(i.vertex.x * _Time[1] * speed / length);
+                float speed = 100.0f;
+                float cutoff = 0.99f;
+                float length = 100.0f;
+                float sinTime = sin((_Time[1] * speed + i.vertex.y) / length);
 
                 float finalMultiplicator = 1.0f;
                 if (sinTime > cutoff)
