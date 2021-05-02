@@ -61,9 +61,14 @@ namespace Notfallkoffer._Scripts.Sorge
         /// <param name="frameTime"></param>
         public void HandleUserShouldSpeakAction(bool shouldUserSpeak, float frameTime)
         {
+#if UNITY_WEBGL
+            // always true if webgl
+            stateData.Points.OnUserActionDuringFrame(true, frameTime);
+#else
             bool isUserSpeakingCorrectly = shouldUserSpeak == stateData.Microphone.IsUserSpeaking();
             stateData.Microphone.SetUserSpeakingCorrectly(isUserSpeakingCorrectly);
             stateData.Points.OnUserActionDuringFrame(isUserSpeakingCorrectly, frameTime);
+#endif
         }
 
 

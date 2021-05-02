@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Notfallkoffer/Scenes/Module/Sorge.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Notfallkoffer/Scenes/Balloons.unity
+    guid: 304b7febb4393094daa6ac15a7557d80
   m_configObjects: {}
