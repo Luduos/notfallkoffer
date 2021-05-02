@@ -10,9 +10,8 @@ public class KillerCatAnimationController : MonoBehaviour
     int step = 0;
     public float minSwitchTime = 2.5f;
     public float maxSwitchTime = 4f;
-
     public ColorManager colorManager;
-
+    private bool explodingKitten = false;
 
     
 
@@ -32,28 +31,41 @@ public class KillerCatAnimationController : MonoBehaviour
     {
         yield return new WaitForSeconds(Random.Range(minSwitchTime, maxSwitchTime));
 
-        if(step < 3)
-        {
-            step++;
+        if (!explodingKitten) {
+            if (step < 3)
+            {
+                step++;
+            }
+            else
+            {
+                step = 0;
+            }
+
+            animator.SetInteger("lampState", step);
+            WimmelSoundManager.instance.PlaySource("Lampe bizzeln v2");
+            WimmelSoundManager.instance.PlaySource("Schalter_V3");
+            StartCoroutine(switchLampColor());
+            StartCoroutine(nextLampState());
         }
         else
         {
-            step = 0;
-        }
-        
-        animator.SetInteger("lampState", step);
-        WimmelSoundManager.instance.PlaySource("Lampe bizzeln v2");
-        WimmelSoundManager.instance.PlaySource("Schalter_V3");
-        StartCoroutine(switchLampColor());
-       
+            animator.SetInteger("lampState", 4);
 
-        StartCoroutine(nextLampState());
+        }
+       
     }
+
 
     IEnumerator switchLampColor()
     {
         yield return new WaitForSeconds(0.25f);
        // WimmelSoundManager.instance.PlaySource("Lampe bizzeln v2");
         colorManager.setCurrentColor(step);
+    }
+
+    public void playCrazyCatAnimation(bool yes)
+    {
+        explodingKitten = yes;
+        StartCoroutine(nextLampState());
     }
 }

@@ -7,19 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1571228666, guid: 55e2e7d4752473344a765582b04e2f2e, type: 3}
-      propertyPath: sr
-      value: 
-      objectReference: {fileID: 3604033843066785815}
     - target: {fileID: 7144246997556768272, guid: 55e2e7d4752473344a765582b04e2f2e,
         type: 3}
       propertyPath: m_Name
-      value: FaceCat
-      objectReference: {fileID: 0}
-    - target: {fileID: 7144246997556768272, guid: 55e2e7d4752473344a765582b04e2f2e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: FaceCatVariant
       objectReference: {fileID: 0}
     - target: {fileID: 7144246997556768274, guid: 55e2e7d4752473344a765582b04e2f2e,
         type: 3}
@@ -78,9 +69,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55e2e7d4752473344a765582b04e2f2e, type: 3}
---- !u!212 &3604033843066785815 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7144246996622717268, guid: 55e2e7d4752473344a765582b04e2f2e,
-    type: 3}
-  m_PrefabInstance: {fileID: 5846076274294022467}
-  m_PrefabAsset: {fileID: 0}
