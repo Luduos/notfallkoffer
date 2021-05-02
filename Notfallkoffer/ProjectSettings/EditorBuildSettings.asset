@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Notfallkoffer/Scenes/Balloons.unity
     guid: 304b7febb4393094daa6ac15a7557d80
+  - enabled: 1
+    path: Assets/Notfallkoffer/Scenes/VanessaBalloons.unity
+    guid: 856dff4eccf92874c9edad1f096afb60
   m_configObjects: {}
