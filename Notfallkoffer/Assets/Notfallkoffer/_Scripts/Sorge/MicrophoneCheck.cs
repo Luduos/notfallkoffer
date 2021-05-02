@@ -40,10 +40,17 @@ namespace Notfallkoffer._Scripts.Sorge
             {
                 audioSource = GetComponent<AudioSource>();
             }
+
+            if (Application.platform != RuntimePlatform.WindowsEditor)
+            {
+                debugMode = false;
+            }
         }
 
         public void StartMicrophone()
         {
+            
+            #if !UNITY_WEBGL
             Debug.Log("Trying to start microphone");
             enabled = true;
 
@@ -64,6 +71,7 @@ namespace Notfallkoffer._Scripts.Sorge
             Debug.Log("Starting Microphone");
             audioSource.loop = true;
             audioSource.Play();
+            #endif
         }
 
         private void Update()

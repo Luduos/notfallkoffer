@@ -33,7 +33,7 @@ namespace Notfallkoffer._Scripts.Sorge
             {
                 ActivateMicrophone();
             }
-#elif UNITY_EDITOR_WIN
+#else 
             ActivateMicrophone();
 #endif
         }
