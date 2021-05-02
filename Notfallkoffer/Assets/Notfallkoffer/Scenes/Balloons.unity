@@ -1170,7 +1170,7 @@ MonoBehaviour:
   startX: 0
   slider: {fileID: 472256706}
   sliderCurrVal: 0
-  sliderMaxVal: 100
+  sliderMaxVal: 1000
   colorManager: {fileID: 1625854288}
 --- !u!1 &1301366554
 GameObject:

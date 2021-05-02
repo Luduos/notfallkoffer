@@ -19,10 +19,11 @@ public class ClickManager : MonoBehaviour
     public Slider slider;
 
     public float sliderCurrVal = 0f;
-    public float sliderMaxVal = 100f;
+    public float sliderMaxVal = 1000f;
 
 
     private int combo = 1;
+    private float baseProgress = 3f;
 
     public ColorManager colorManager;
 
@@ -97,21 +98,6 @@ public class ClickManager : MonoBehaviour
                 if (hit == true)
                 {
 
-                    string currColor = colorManager.currentColor;
-                    Debug.Log(hit.transform.parent.GetComponent<BallonLerper>().ballon.color);
-                    Debug.Log(currColor);
-                    Debug.Log(hit.transform.parent.GetComponent<BallonLerper>().ballon.color.Equals(currColor));
-                    
-                    if(hit.transform.parent.GetComponent<BallonLerper>().ballon.color.Equals(currColor))
-                    {
-                        combo += 1;
-                    }
-                    else
-                    {
-                        combo = 1;
-                    }
-
-
                     GameObject hitObj = hit.transform.gameObject;
 
                     if (hitObj != null)
@@ -121,6 +107,22 @@ public class ClickManager : MonoBehaviour
                         string selectableTag = "Ballon";
                         if (hitObj.transform.CompareTag(selectableTag))
                         {
+                            string currColor = colorManager.currentColor;
+//                            Debug.Log(hit.transform.parent.GetComponent<BallonLerper>().ballon.color);
+//                            Debug.Log(currColor);
+//                            Debug.Log(hit.transform.parent.GetComponent<BallonLerper>().ballon.color.Equals(currColor));
+
+                            if (hit.transform.parent.GetComponent<BallonLerper>().ballon.color.Equals(currColor))
+                            {
+                                combo += 1;
+                            }
+                            else
+                            {
+                                combo = 1;
+                            }
+
+                            IncrementProgress(baseProgress);
+
                             //Debug.Log("balloon hit");
                             GameObject baloonCat = hit.transform.parent.GetComponentInParent<Transform>().gameObject;
 
@@ -166,6 +168,7 @@ public class ClickManager : MonoBehaviour
 
     public void IncrementProgress(float newProgress)
     {
+        //Debug.Log((newProgress * combo));
         slider.value += (newProgress * combo) ;
 
     }
