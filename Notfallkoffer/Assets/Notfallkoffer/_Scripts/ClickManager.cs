@@ -13,7 +13,7 @@ public class ClickManager : MonoBehaviour
     public float startX;
     private Vector3 startPoint;
     private bool isHeldDown;
-
+    private float dragspeed = 10.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,14 +52,14 @@ public class ClickManager : MonoBehaviour
            // Debug.Log(draggedPos.x);
 
             float x = startPoint.x - draggedPos.x;
-            Debug.Log(cam.gameObject.transform.position.x);
-            Debug.Log(-1f * maxCameraOffset);
-            Debug.Log(cam.gameObject.transform.position.x >= -maxCameraOffset);
+           // Debug.Log(cam.gameObject.transform.position.x);
+            //Debug.Log(-1f * maxCameraOffset);
+            //Debug.Log(cam.gameObject.transform.position.x >= -maxCameraOffset);
             //Debug.Log(cam.gameObject.transform.position.x <= startX + maxCameraOffset);
 
             if (cam.gameObject.transform.position.x >= -maxCameraOffset && cam.gameObject.transform.position.x <= maxCameraOffset)
             {
-                cam.gameObject.transform.Translate(x * 20f * Time.deltaTime, 0, 0);
+                cam.gameObject.transform.Translate(x * dragspeed * Time.deltaTime, 0, 0);
             }
           
             if(cam.gameObject.transform.position.x < -maxCameraOffset)
