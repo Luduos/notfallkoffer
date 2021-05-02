@@ -50,6 +50,7 @@ public class KillerCatAnimationController : MonoBehaviour
         else
         {
             animator.SetInteger("lampState", 4);
+
         }
        
     }
@@ -65,5 +66,6 @@ public class KillerCatAnimationController : MonoBehaviour
     public void playCrazyCatAnimation(bool yes)
     {
         explodingKitten = yes;
+        StartCoroutine(nextLampState());
     }
 }
