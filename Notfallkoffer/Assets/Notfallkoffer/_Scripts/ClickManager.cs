@@ -30,6 +30,7 @@ public class ClickManager : MonoBehaviour
     public KillerCatAnimationController catanim;
     public WinCondition winCondition;
 
+
     void Start()
     {
         if(SystemInfo.deviceType == DeviceType.Handheld)

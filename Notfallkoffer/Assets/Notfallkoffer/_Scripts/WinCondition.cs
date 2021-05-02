@@ -5,8 +5,12 @@ using UnityEngine;
 public class WinCondition : MonoBehaviour
 {
 
-    private float secondsToWinScreen = 3f;
+    private float secondsToWinScreen = 7f;
     public bool startCountDown = false;
+
+
+    public GameObject oldPanel;
+    public GameObject winsCreen;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,11 @@ public class WinCondition : MonoBehaviour
 
             if(secondsToWinScreen <= 0f)
             {
-                Debug.Log("Switch to win screen!");
+
+
+                oldPanel.SetActive(false);
+                winsCreen.SetActive(true);
+                //Debug.Log("Switch to win screen!");
             }
         }
     }
