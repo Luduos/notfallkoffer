@@ -127,9 +127,9 @@ public class ClickManager : MonoBehaviour
                             GameObject baloonCat = hit.transform.parent.GetComponentInParent<Transform>().gameObject;
 
                             //Debug.Log(baloonCat);
-
+                            hit.transform.parent.GetComponent<BallonLerper>().particleSystem.Play();
                             Destroy(baloonCat, .5f);
-                        WimmelSoundManager.instance.PlaySource("Luftballon platzen");
+                            WimmelSoundManager.instance.PlaySource("Luftballon platzen");
                     }
                     }
 
