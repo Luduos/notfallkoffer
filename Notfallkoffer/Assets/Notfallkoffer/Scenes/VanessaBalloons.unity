@@ -3148,7 +3148,7 @@ MonoBehaviour:
   startX: 0
   slider: {fileID: 1573286180}
   sliderCurrVal: 0
-  sliderMaxVal: 100
+  sliderMaxVal: 1000
   colorManager: {fileID: 810442744}
 --- !u!4 &1905311341
 Transform:

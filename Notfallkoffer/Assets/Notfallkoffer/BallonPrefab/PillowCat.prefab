@@ -266,7 +266,7 @@ MonoBehaviour:
   endPosition: {x: 0, y: 0, z: 0}
   ballon: {fileID: 0}
   sr: {fileID: 3744393480135386795}
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 5954341455739038911}
 --- !u!1001 &5791673524464547001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,6 +327,12 @@ PrefabInstance:
 --- !u!4 &5796335922018753561 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4662672440027296, guid: 5d77678d69d4c451c92dc01213dd6549,
+    type: 3}
+  m_PrefabInstance: {fileID: 5791673524464547001}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &5954341455739038911 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198785531038619654, guid: 5d77678d69d4c451c92dc01213dd6549,
     type: 3}
   m_PrefabInstance: {fileID: 5791673524464547001}
   m_PrefabAsset: {fileID: 0}
