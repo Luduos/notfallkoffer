@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class ClickManager : MonoBehaviour
 {
@@ -14,13 +14,27 @@ public class ClickManager : MonoBehaviour
     private Vector3 startPoint;
     private bool isHeldDown;
     private float dragspeed = 10.5f;
-    // Start is called before the first frame update
+
+
+    public Slider slider;
+
+    public float sliderCurrVal = 0f;
+    public float sliderMaxVal = 100f;
+
+
+    private int combo = 1;
+
+    public ColorManager colorManager;
+
+
     void Start()
     {
         if(SystemInfo.deviceType == DeviceType.Handheld)
         {
             platform = "phone";
         }
+
+        slider.maxValue = sliderMaxVal;
 
         maxCameraOffset = 200f;
 
@@ -83,6 +97,21 @@ public class ClickManager : MonoBehaviour
                 if (hit == true)
                 {
 
+                    string currColor = colorManager.currentColor;
+                    Debug.Log(hit.transform.parent.GetComponent<BallonLerper>().ballon.color);
+                    Debug.Log(currColor);
+                    Debug.Log(hit.transform.parent.GetComponent<BallonLerper>().ballon.color.Equals(currColor));
+                    
+                    if(hit.transform.parent.GetComponent<BallonLerper>().ballon.color.Equals(currColor))
+                    {
+                        combo += 1;
+                    }
+                    else
+                    {
+                        combo = 1;
+                    }
+
+
                     GameObject hitObj = hit.transform.gameObject;
 
                     if (hitObj != null)
@@ -134,5 +163,12 @@ public class ClickManager : MonoBehaviour
     {
       return Camera.main.ScreenPointToRay(Input.mousePosition);
     }
+
+    public void IncrementProgress(float newProgress)
+    {
+        slider.value += (newProgress * combo) ;
+
+    }
+
 }
 

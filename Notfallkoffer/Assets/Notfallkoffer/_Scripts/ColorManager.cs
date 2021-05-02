@@ -13,6 +13,12 @@ public class ColorManager : MonoBehaviour
 
     public Image bulbImage;
 
+    public string currentColor = "green";
+
+
+    public float minSwitchTime = 2.5f;
+    public float maxSwitchTime = 4f;
+
 
     // Start is called before the first frame update
     void Start()
