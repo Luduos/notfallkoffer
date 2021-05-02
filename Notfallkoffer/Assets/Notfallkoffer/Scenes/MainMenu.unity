@@ -1301,19 +1301,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 169670416}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1360919112}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: toggleMusic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1262658701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1439,6 +1427,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicOff: 0
   musicButtonOn: {fileID: 0}
+  masterMixer: {fileID: 24100000, guid: 9824596e6a0accc49bf10dfe5f30f7a1, type: 2}
 --- !u!1 &1529437845
 GameObject:
   m_ObjectHideFlags: 0
