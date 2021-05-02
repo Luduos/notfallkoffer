@@ -27,6 +27,8 @@ public class ClickManager : MonoBehaviour
 
     public ColorManager colorManager;
 
+    public KillerCatAnimationController catanim;
+    public WinCondition winCondition;
 
     void Start()
     {
@@ -171,6 +173,15 @@ public class ClickManager : MonoBehaviour
     {
         //Debug.Log((newProgress * combo));
         slider.value += (newProgress * combo) ;
+
+        if(slider.value >= sliderMaxVal)
+        {
+
+            catanim.playCrazyCatAnimation(true);
+            winCondition.startCountDown = true;
+
+}
+
 
     }
 
