@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a47c0120308e6594aa935c44f7fc8c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Balloons
+  sceneName: VanessaBalloons
   button: {fileID: 4333047500115094364}
 --- !u!1 &169670414
 GameObject:
@@ -938,6 +938,74 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1142583969
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142583971}
+  - component: {fileID: 1142583970}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1142583970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142583969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34f3be723b7d574b88248c5ed72fdaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  list:
+  - cam: {fileID: 143710668}
+    deleteQuestion: 0
+    hotkey: 0
+  settings:
+    signatureColor: {r: 1, g: 0, b: 0.5, a: 1}
+    customFileName: 
+    includeProject: 1
+    includeCamera: 1
+    includeDate: 1
+    includeResolution: 0
+    includeCounter: 0
+    counter: 0
+    fileType: 0
+    applicationPath: 0
+    customDirectoryName: 
+    captureMethod: 0
+    singleCamera: 0
+    renderSizeMultiplier: 1
+    captureSizeMultiplier: 1
+    cutoutPosition: {x: 0, y: 0}
+    cutoutSize: {x: 0, y: 0}
+  foldoutSettings: 0
+  lastCamID: 0
+  lastCam: {fileID: 143710670}
+--- !u!4 &1142583971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142583969}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3120878, y: 0.10299352, z: -0.95741946}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1200683730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicOff: 0
   musicButtonOn: {fileID: 0}
-  masterMixer: {fileID: 0}
+  masterMixer: {fileID: 24100000, guid: 9824596e6a0accc49bf10dfe5f30f7a1, type: 2}
 --- !u!1 &1529437845
 GameObject:
   m_ObjectHideFlags: 0
