@@ -1,16 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Assertions;
 
 namespace Notfallkoffer._Scripts.Sorge
 {
     public class BreatheInAnimationState : SorgeAnimationStateBase
     {
-        [SerializeField] private AudioSource audioSource;
-
         protected override void Awake()
         {
             base.Awake();
-            stateData.catObject.LeanAlpha(0.0f, 0.0f);
+            stateData.refs.catObject.LeanAlpha(0.0f, 0.0f);
         }
 
         public override void Enter()
@@ -18,24 +17,32 @@ namespace Notfallkoffer._Scripts.Sorge
             base.Enter();
             if (bFirstTimeInState)
             {
-                stateData.catObject.LeanAlpha(0.0f, 0.0f);
-                stateData.catObject.LeanAlpha(1.0f, 0.5f).setEase(stateData.easeType);
-                stateData.animator.SetTrigger("In");
+                stateData.Cat.LeanAlpha(0.0f, 0.0f);
+                stateData.Cat.LeanAlpha(1.0f, 0.5f).setEase(stateData.easeType);
+                stateData.Animator.SetTrigger("In");
             }
-            
-            audioSource.Play();
-            LeanTween.value(0.0f, 1.0f, stateData.timeInState).setOnUpdate(OnUpdateVolume);
+
+            stateData.SchnurrenSource.Play();
+            // LeanTween.value(0.0f, 1.0f, stateData.timeInState).setOnUpdate(OnUpdateVolume);
         }
 
         private void OnUpdateVolume(float alpha)
         {
-            audioSource.volume = alpha;
+            stateData.SchnurrenSource.volume = alpha;
+        }
+
+
+        public override State OnStateUpdate(float deltaTime)
+        {
+            HandleUserShouldSpeakAction(false, deltaTime);
+
+            return base.OnStateUpdate(deltaTime);
         }
 
         public override void Exit()
         {
             base.Exit();
-            stateData.animator.SetTrigger("Hold");
+            stateData.Animator.SetTrigger("Hold");
         }
     }
 }

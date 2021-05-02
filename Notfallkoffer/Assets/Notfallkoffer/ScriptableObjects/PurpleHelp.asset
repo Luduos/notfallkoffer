@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: purple
   type: help
-  ballonSprite: {fileID: 0}
+  ballonSprite: {fileID: 21300000, guid: 452fe4f3ace22b641af3b543c18d79e3, type: 3}

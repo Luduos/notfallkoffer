@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9a0b6a97e14654d9de785735402598, type: 3}
   m_Name: OrangePillow
   m_EditorClassIdentifier: 
-  color: 
-  type: 
-  ballonSprite: {fileID: 0}
+  color: orange
+  type: pillow
+  ballonSprite: {fileID: 21300000, guid: cee6308e38438b14e8300e5ad7ccd1cc, type: 3}
