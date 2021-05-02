@@ -129,7 +129,8 @@ public class ClickManager : MonoBehaviour
                             //Debug.Log(baloonCat);
 
                             Destroy(baloonCat, .5f);
-                        }
+                        WimmelSoundManager.instance.PlaySource("Luftballon platzen");
+                    }
                     }
 
                 }

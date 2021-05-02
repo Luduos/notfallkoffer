@@ -13,9 +13,14 @@ public class KillerCatAnimationController : MonoBehaviour
 
     public ColorManager colorManager;
 
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        WimmelSoundManager.instance.PlaySource("CatBallonMainTheme");  //oder herbal-tea
+
         animator = GetComponent<Animator>();
 
         StartCoroutine(nextLampState());
@@ -37,7 +42,8 @@ public class KillerCatAnimationController : MonoBehaviour
         }
         
         animator.SetInteger("lampState", step);
-
+        WimmelSoundManager.instance.PlaySource("Lampe bizzeln v2");
+        WimmelSoundManager.instance.PlaySource("Schalter_V3");
         StartCoroutine(switchLampColor());
        
 
@@ -47,6 +53,7 @@ public class KillerCatAnimationController : MonoBehaviour
     IEnumerator switchLampColor()
     {
         yield return new WaitForSeconds(0.25f);
+       // WimmelSoundManager.instance.PlaySource("Lampe bizzeln v2");
         colorManager.setCurrentColor(step);
     }
 }
