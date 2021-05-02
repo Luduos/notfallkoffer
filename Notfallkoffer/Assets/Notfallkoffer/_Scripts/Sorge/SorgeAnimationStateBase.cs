@@ -14,14 +14,13 @@ namespace Notfallkoffer._Scripts.Sorge
         {
             base.Awake();
             stateData.instructionData.instructionText.gameObject.SetActive(true);
-            stateData.instructionData.instructionText.LeanAlphaText(0.0f, 0.0f);
-
+            stateData.instructionData.instructionText.LeanAlpha(0.0f, 0.0f);
         }
 
         public override void Enter()
         {
             base.Enter();
-            
+
             var instructionData = stateData.instructionData;
             if (instructionData.shownInstructions < instructionData.numShowInstructions)
             {
@@ -30,34 +29,48 @@ namespace Notfallkoffer._Scripts.Sorge
             }
 
 
-            stateData.animator.speed = 1.0f / stateData.timeInState;
+            stateData.Animator.speed = 1.0f / stateData.timeInState;
         }
 
         private void ShowInstruction()
         {
             var text = stateData.instructionData.instructionText;
 
-            text.LeanAlphaText(0.0f, 0.0f);
-
             text.alpha = 0.0f;
-            Color noAlphaColor = text.color;
-            Color alphaColor = noAlphaColor;
-            alphaColor.a = 1.0f;
 
             var instructionData = stateData.instructionData;
-            text.colorTransition(alphaColor, instructionData.fadeInTime).JoinDelayTransition(instructionData.stayOnTime)
-                .colorTransition(noAlphaColor, instructionData.fadeOutTime);
+            text.alphaTransition(1.0f, instructionData.fadeInTime).JoinDelayTransition(instructionData.stayOnTime)
+                .alphaTransition(0.0f, instructionData.fadeOutTime);
         }
 
         public override State OnStateUpdate(float deltaTime)
         {
-            if (TimeInState > stateData.timeInState)
+            if (CurrentTimeInState > stateData.timeInState)
             {
                 return stateData.nextState;
             }
 
             return base.OnStateUpdate(deltaTime);
         }
+
+        /// <summary>
+        /// Handles game logic by checking if the user is speaking. If shouldUserSpeak is true and user is speaking,
+        /// will add points, otherwise it will take away points. Also initializes ui visualization.
+        /// </summary>
+        /// <param name="shouldUserSpeak"></param>
+        /// <param name="frameTime"></param>
+        public void HandleUserShouldSpeakAction(bool shouldUserSpeak, float frameTime)
+        {
+#if UNITY_WEBGL
+            // always true if webgl
+            stateData.Points.OnUserActionDuringFrame(true, frameTime);
+#else
+            bool isUserSpeakingCorrectly = shouldUserSpeak == stateData.Microphone.IsUserSpeaking();
+            stateData.Microphone.SetUserSpeakingCorrectly(isUserSpeakingCorrectly);
+            stateData.Points.OnUserActionDuringFrame(isUserSpeakingCorrectly, frameTime);
+#endif
+        }
+
 
         public override void Exit()
         {

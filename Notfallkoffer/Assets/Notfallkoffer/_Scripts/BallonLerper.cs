@@ -13,6 +13,10 @@ public class BallonLerper : MonoBehaviour
     public Vector3 startPosition;
     public Vector3 endPosition;
 
+    public BallonSO ballon;
+
+    public SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {

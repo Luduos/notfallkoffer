@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   color: green
   type: pillow
-  ballonSprite: {fileID: 0}
+  ballonSprite: {fileID: 21300000, guid: 5fd8d235a788c4a46a5ffbdaa0678221, type: 3}

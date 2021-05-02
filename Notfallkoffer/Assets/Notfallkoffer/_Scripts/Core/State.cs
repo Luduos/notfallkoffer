@@ -5,7 +5,7 @@ namespace Notfallkoffer._Scripts
 {
     public abstract class State : MonoBehaviour
     {
-        protected float TimeInState = 0.0f;
+        protected float CurrentTimeInState = 0.0f;
 
         protected virtual void Awake()
         {
@@ -15,13 +15,13 @@ namespace Notfallkoffer._Scripts
         public virtual void Enter()
         {
             enabled = true;
-            TimeInState = 0.0f;
+            CurrentTimeInState = 0.0f;
             
         }
 
         public virtual State OnStateUpdate(float deltaTime)
         {
-            TimeInState += deltaTime;
+            CurrentTimeInState += deltaTime;
             return null;
         }
 

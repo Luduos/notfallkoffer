@@ -10,7 +10,14 @@ namespace Notfallkoffer._Scripts.Sorge
         public override void Exit()
         {
             base.Exit();
-            stateData.animator.SetTrigger("Out");
+            stateData.Animator.SetTrigger("Out");
+        }
+
+        public override State OnStateUpdate(float deltaTime)
+        {
+            HandleUserShouldSpeakAction(false, deltaTime);
+            
+            return base.OnStateUpdate(deltaTime);
         }
     }
 }
