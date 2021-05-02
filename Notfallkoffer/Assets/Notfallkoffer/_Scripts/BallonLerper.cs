@@ -17,6 +17,8 @@ public class BallonLerper : MonoBehaviour
 
     public SpriteRenderer sr;
 
+    public ParticleSystem particleSystem;
+
     // Start is called before the first frame update
     void Start()
     {
