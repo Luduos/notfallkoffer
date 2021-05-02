@@ -1167,7 +1167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicOff: 0
   musicButtonOn: {fileID: 0}
-  masterMixer: {fileID: 0}
+  masterMixer: {fileID: 24100000, guid: 9824596e6a0accc49bf10dfe5f30f7a1, type: 2}
 --- !u!1 &1529437845
 GameObject:
   m_ObjectHideFlags: 0
